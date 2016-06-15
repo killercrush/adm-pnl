@@ -22,7 +22,24 @@ Route::post('/common', 'CommonController@save');
 
 Route::get('/product', 'ProductController@index');
 Route::put('/product', 'ProductController@create');
-Route::get('/product/add', 'ProductController@show_edit');
+Route::post('/product', 'ProductController@save');
+
+Route::get('/product/add', 'ProductController@show_add');
+Route::get('/product/edit/{id}', 'ProductController@show_edit');
+
+Route::get('/product/addCategory', 'ProductController@show_add_category');
+Route::put('/product/addCategory', 'ProductController@create_category');
+
+Route::get('/mydata', 'MyDataController@index');
+Route::post('/mydata', 'MyDataController@save');
+
+Route::get('/promo', 'PromoController@index');
+Route::put('/promo', 'PromoController@create');
+Route::post('/promo', 'PromoController@save');
+Route::delete('/promo', 'PromoController@delete');
+
+Route::get('/payment', 'PaymentController@index');
+Route::post('/payment', 'PaymentController@save');
 
 Route::post('/send-email', function () {
 	$to = Request::input('email');

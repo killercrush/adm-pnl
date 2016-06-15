@@ -8,7 +8,7 @@
                 <div class="panel-heading">Товар</div>
 
                 <div class="panel-body">
-                    <table>
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>№</th>
@@ -22,16 +22,16 @@
                             @foreach($products as $product)
                                 <tr>
                                     <td>{{ $product->id }}</td>
-                                    <td>{{ $product->category_id }}</td>
+                                    <td>{{ $product->category->name }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->quantity }}</td>
-                                    <td><a class="btn btn-large" href="{{ url('/product/edit') }}">Редактировать</a></td>
+                                    <td>{{ $product->games->count() }}</td>
+                                    <td><a class="btn btn-default" href="{{ url('/product/edit/') . '/' . $product->id}}">Редактировать</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-large" href="{{ url('/product/add') }}">Добавить товар</a>
-                    <a class="btn btn-large" href="{{ url('/product/addCategory') }}">Добавить категорию</a>
+                    <a class="btn btn-primary" href="{{ url('/product/add') }}">Добавить товар</a>
+                    <a class="btn btn-primary" href="{{ url('/product/addCategory') }}">Добавить категорию</a>
                 </div>
             </div>
         </div>
