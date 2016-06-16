@@ -20,3 +20,13 @@ function addNewInp() {
 
   this.onkeyup = null;
 }
+
+$('a[data-modal]').click(function(event) {
+  $(this).modal();
+  return false;
+});
+
+function show_modal(feedback_id) {
+  $('#feedback_id').val( feedback_id );
+  $('#response_form').modal();
+}

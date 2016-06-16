@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1 payment-page">
             <div class="panel panel-default">
-                <div class="panel-heading">Товар</div>
+                <div class="panel-heading">Оплата</div>
                 <div class="panel-body">
                     @foreach($payments as $payment)
                         <div class="col-md-4">

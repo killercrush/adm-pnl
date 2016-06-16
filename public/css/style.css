@@ -35,3 +35,17 @@
 .payment-page .row{
 	padding-bottom: 10px;
 }
+hr {
+	border-top: 1px solid #ccc;
+}
+.form-control-small {
+	max-width: 60px
+}
+.textarea-fixed {
+	max-width: 300px;
+	max-height: 200px;
+}
+.textarea-modal {
+	width: 100%;
+	max-width: 100%;
+}

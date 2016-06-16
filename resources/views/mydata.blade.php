@@ -7,16 +7,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Мои данные
                 @if ($errors->has())
-                      @foreach ($errors->all() as $error)
+                    @foreach ($errors->all() as $error)
                         <div class="alert alert-danger alert-dismissible fade in" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                             {{ $error }}       
-                        </div>
-                        
-                      @endforeach
-                    @endif
+                        </div>                        
+                    @endforeach
+                @endif
                 </div>
 
                 <div class="panel-body">
@@ -29,7 +28,6 @@
                                 <input id="email" type="text" class="form-control" name="email" value="{{ $errors->has('email') ? old('email') : $user->email }}">
                             </div>                               
                         </div>
-                        <hr>
                          <div class="col-md-12">
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#changePassword" aria-expanded="false" aria-controls="collapseExample">
                               Сменить пароль
@@ -59,7 +57,6 @@
                             </div>
                         </div>                    
                         <div class="col-md-12">
-                            <hr>
                             <div class="col-md-2 col-md-offset-10">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-save"></i> Сохранить

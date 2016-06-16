@@ -41,6 +41,14 @@ Route::delete('/promo', 'PromoController@delete');
 Route::get('/payment', 'PaymentController@index');
 Route::post('/payment', 'PaymentController@save');
 
+Route::get('/statistics/{days}', 'StatisticsController@index');
+Route::get('/statistics', 'StatisticsController@index');
+
+Route::get('/other', 'OtherController@index');
+Route::post('/other/save-ref', 'OtherController@save_ref');
+Route::post('/other/feedback-edit', 'OtherController@feedback_edit');
+Route::delete('/other/clear-db', 'OtherController@clear_db');
+
 Route::post('/send-email', function () {
 	$to = Request::input('email');
 	$subject = "Вашь пароль";
