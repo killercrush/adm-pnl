@@ -27,13 +27,13 @@
                                 <div class="form-cell"><input required class="form-control input-sum" type="text" name="summ" value="{{ $promocode->summ }}">руб.</div>
                                 <div class="form-cell">
                                     <input type="submit" class="btn btn-success" value="Сохранить">
-                                    <form class="form-row" role="form" method="POST" action="{{ url('/promo') }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <input type="hidden" name="promocode_id" value="{{ $promocode->id }}">
-                                        <input type="submit" class="btn btn-danger" value="Удалить">
-                                    </form>
+                                    <a class="btn btn-danger" onclick="$('#{{'del_promo' . $promocode->id }}').submit();">Удалить</a>
                                 </div>
+                            </form>                            
+                            <form id="{{'del_promo' . $promocode->id }}" style="display: none;" role="form" method="POST" action="{{ url('/promo') }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <input type="hidden" name="promocode_id" value="{{ $promocode->id }}">                                
                             </form>
                         @endforeach
                     </div>
@@ -44,7 +44,7 @@
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
                                 <span>Сумма</span>
-                                <input required class="form-control"  type="text" name="summ" value="">
+                                <input required class="form-control"  type="number" name="summ" value="">
                                 <span> руб.</span>
                                 <input type="submit" class="btn btn-primary" value="Генерировать">
                             </form>

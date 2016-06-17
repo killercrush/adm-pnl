@@ -63,13 +63,16 @@ class OtherController extends Controller
         try {
             $id = $request->input('feedback_id');
             $feedback = \App\Adm_feedback::findOrFail( $id );
-            $feedback->response_text = $request->input('response_text');
+            if ( $request->input('response_text', '') != '' )
+                $feedback->response_text = $request->input('response_text');
+            if ( $request->input('status', '') != '' )
+                $feedback->status = $request->input('status');            
             $feedback->save();
         } catch (Exception $e) {
             die("Ошибка в БД");
         }
-        return redirect('/other')->with('message', 'Ответ изменен');
-    }    
+        return redirect('/other')->with('message', 'Сохранено');
+    }
     public function clear_db(Request $request)
     {
         try {
